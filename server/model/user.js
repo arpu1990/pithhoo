@@ -10,5 +10,5 @@ const Schema_Users = new Schema({
 	});
 
 module.exports = {
-	"ModelUserData" : mongoose.model('UserData', Schema_Users),
+	"ModelUserData" : mongoose.model('users', Schema_Users),
 };

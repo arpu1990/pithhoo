@@ -15,14 +15,16 @@ MongoClient.connect(dbString, {
 
 const ModelUserDataWrapper 		= require("../model/user");
 const ModelUserData 			= ModelUserDataWrapper.ModelUserData;
-
+const Res_Base					= require("../utils/BASE_RES");
 
 exports.getAll = function(req, res) {
 	ModelUserData.find({username: "asusai"}, function(err, docs) {
 		if(!err) {
-			res.send({"data":docs})
+			let dto_response = Res_Base.resp_base;
+			dto_response.data = docs;
+			res.send(dto_response);
 		} else {
-			res.send("Something went wrong")
+			res.send("Something went wrong");
 		}
 	});
 	
